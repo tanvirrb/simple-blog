@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbURL = 'Put your database connection url here';
+const dbURL = process.env.DB_URI;
 if (!dbURL) {
     console.error('Mongo URL not set in env file or config.js');
     return new Error('Mongo URL not set in env file or config.js');
