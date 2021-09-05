@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const postController = require('../posts/posts.controller');
-const postMiddleware = require('../posts/posts.middleware')
+// const postMiddleware = require('../posts/posts.middleware');
 
 router.post('/posts', postController.createPosts);
 router.get('/posts', postController.getPosts);
