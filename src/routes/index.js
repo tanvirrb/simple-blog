@@ -3,6 +3,9 @@ const router = express.Router();
 const postController = require('../posts/posts.controller');
 // const postMiddleware = require('../posts/posts.middleware');
 
+router.get('/', function(req, res) { 
+    return res.json({ message: 'App is running'})
+});
 router.post('/posts', postController.createPosts);
 router.get('/posts', postController.getPosts);
 router.get('/posts/:id', postController.getPostById);
