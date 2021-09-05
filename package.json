@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node src/bin/www",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
