@@ -1,9 +1,9 @@
 const postService = require('./posts.service');
 
 module.exports.createPosts = async function (req, res) {
-  const blog = req.body;
-  const createdBlog = await postService.createPost(blog);
-  return res.json(createdBlog);
+  const post = req.body;
+  const createdPost = await postService.createPost(post);
+  return res.status(200).json(createdPost);
 };
 
 module.exports.getPosts = async function (req, res) {

@@ -1,7 +1,7 @@
 const Post = require('./posts.model');
 
-module.exports.createPost = async function (blog) {
-  return Post.create(blog);
+module.exports.createPost = async function (post) {
+  return Post.create(post);
 };
 
 module.exports.getPosts = async function () {

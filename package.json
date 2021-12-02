@@ -6,7 +6,8 @@
     "start": "node src/bin/www",
     "dev": "nodemon",
     "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix"
+    "lint:fix": "eslint ./src --fix",
+    "test": "mocha \\\"./test/**/*.test.js\\\" --timeout 15000 --exit"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -19,7 +20,11 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "eslint": "^7.32.0",
+    "faker": "^5.5.3",
+    "mocha": "^9.1.1",
     "nodemon": "^2.0.12"
   }
 }

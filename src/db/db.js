@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const { db } = require('../config/config');
 
-const dbURL = process.env.DB_URI;
+const dbURL = db.db_uri;
 if (!dbURL) {
   console.error('Mongo URL not set in env file or config.js');
   return new Error('Mongo URL not set in env file or config.js');
