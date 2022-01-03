@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const objectId = Schema.ObjectId;
 
 const postSchema = new Schema({
   title: {
@@ -11,8 +12,8 @@ const postSchema = new Schema({
     required: true,
   },
   category: {
-    type: String,
-    required: true,
+    type: objectId,
+    ref: 'Category'
   },
   author: {
     type: String,

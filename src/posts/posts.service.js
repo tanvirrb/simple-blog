@@ -1,7 +1,25 @@
 const Post = require('./posts.model');
+const Category = require('../categories/categories.model');
+const mongoose = require('mongoose');
 
 module.exports.createPost = async function (post) {
-  return Post.create(post);
+  const session = await mongoose.startSession();
+  await session.startTransaction();
+  try {
+    const [newPost] = await Post.create([post], { session: session});
+
+    await Category.findByIdAndUpdate(post.category, { $push: { posts: newPost._id}}, { session: session });
+    await session.commitTransaction();
+    session.endSession();
+
+    return newPost;
+  } catch (err) {
+    console.error(err);
+    await session.abortTransaction();
+    session.endSession();
+    return null;
+  }
+  // return Post.create(post);
 };
 
 module.exports.getPosts = async function () {
